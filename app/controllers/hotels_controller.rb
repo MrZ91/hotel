@@ -17,23 +17,20 @@ class HotelsController < ApplicationController
   end
 
   def create
-    @hotel=current_user.hotels.build(hotel_params)
+    @hotel = current_user.hotels.build(hotel_params)
+    binding.pry
 
-    if  @hotel.save && @hotel.build_adress(adress_params).save
-          redirect_to current_user
+    if @hotel.save
+      redirect_to current_user
     else
-    render 'new'
+      render 'new'
     end
   end
 
   private
 
-   def hotel_params
-     params.require(:hotel).permit(:title, :room_description, :price_for_room, :breakfast )
-   end
-
-   def adress_params
-     aa=params.require(:hotel).permit( {adress_attributes: [:country, :state, :city, :street]})
-     aa.require(:adress_attributes).permit(:country, :state, :city, :street)
-   end
+  def hotel_params
+    params.require(:hotel).permit(:title, :room_description, :price_for_room, :breakfast,
+                                  { adress_attributes: [:country, :state, :city, :street] })
+  end
 end
