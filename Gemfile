@@ -7,6 +7,7 @@ gem 'rspec-rails'
 gem 'shoulda-matchers'
 gem 'capybara'
 gem 'bcrypt-ruby'
+gem 'pry-rails'
 
 gem 'rails', '4.0.2'
 gem 'sqlite3'

@@ -28,6 +28,15 @@ describe "User model" do
     before {@user.name="1@/#/%/$_"}
     it {should_not be_valid}
     end
+
+    describe "same as existing user" do
+      before do
+        existing_user= @user.dup
+        existing_user.name = @user.name
+        existing_user.save
+      end
+      it{should_not be_valid}
+    end
   end
 
   describe "with email" do
@@ -55,6 +64,15 @@ describe "User model" do
           expect(@user).to be_valid
         end
       end
+    end
+
+    describe "same as existing user" do
+      before do
+        existing_user= @user.dup
+        existing_user.email = @user.email
+        existing_user.save
+      end
+      it{should_not be_valid}
     end
   end
 
