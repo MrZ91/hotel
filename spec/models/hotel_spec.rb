@@ -4,9 +4,9 @@ describe "Hotel model" do
   before do
     @user= User.new(name: "Example User", email: "example@mail.com",
                     password:"123123", password_confirmation: "123123")
-    @hotel=Hotel.new(title:"Example Hotel",
+    @hotel=@user.hotels.build(title:"Example Hotel",
                      room_description:"Best roomz EVA!",
-                     price_for_room:12.1, user_id:@user.id)
+                     price_for_room:12.1)
   end
 
   subject {@hotel}
@@ -14,6 +14,7 @@ describe "Hotel model" do
   it {should respond_to(:title)}
   it {should respond_to(:room_description)}
   it {should respond_to(:price_for_room)}
+  it {should respond_to(:adress)}
 
   describe "with empty title" do
     before{@hotel.title=" "}
