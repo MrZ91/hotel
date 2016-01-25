@@ -12,10 +12,20 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 5 }, presence: true, format:PASSWORD_REGEX
   has_secure_password
 
-  def rate_hotel!(hotel, value)
-    this_rate=Raiting.new(user_id: self.id, hotel_id: hotel, value: value)
-    this_rate.save if this_rate.valid?
+  def rate_hotel_by_value(hotel, value)
+    self.raitings.build( hotel_id: hotel.id, value: value)
   end
+
+  def rate_hotel_by_value!(hotel, value)
+      this_rate=rate_hotel_by_value(hotel, value)
+      if this_rate.valid?
+        this_rate.save
+        this_rate
+      else
+        nil
+      end
+  end
+
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

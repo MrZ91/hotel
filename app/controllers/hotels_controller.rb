@@ -18,7 +18,7 @@ class HotelsController < ApplicationController
 
   def create
     @hotel = current_user.hotels.build(hotel_params)
-    binding.pry
+
 
     if @hotel.save
       redirect_to current_user
