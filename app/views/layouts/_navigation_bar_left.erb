@@ -1,0 +1,15 @@
+<div class="col-md-2 ">
+  <ul class="nav nav-pills nav-stacked">
+    <li <%='class=active'if current_page?(root_url)%>><%=link_to("Main",root_url)%></li>
+    <li
+        <% if signed_in? %>
+        <%='class=active'if current_page?(current_user)%>><%=link_to("Profile",current_user)%>
+        <%else%>
+        <%='class=active'if current_page?(signin_url)%>><%=link_to("Sign in",signin_url)%>
+        <%end%>
+    </li>
+    <li <%='class=active'if current_page?('#')%>><%=link_to("Search",'#')%></li>
+    <%= debug(params) if Rails.env.development? %>
+    <%= 'current user id:'+current_user.id.to_s if signed_in? %>
+  </ul>
+</div>

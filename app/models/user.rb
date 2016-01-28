@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   PASSWORD_REGEX=/\A\w+\z/i
   has_many :raitings
   has_many :hotels
-  validates :name, presence: true, format: NAME_REGEX, uniqueness: true
+  validates :name, presence: true, format: NAME_REGEX#, uniqueness: true
   validates :email, presence: true, format: EMAIL_REGEX, uniqueness: true
   validates :password, length: { minimum: 5 }, presence: true, format:PASSWORD_REGEX
   has_secure_password

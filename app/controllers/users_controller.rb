@@ -12,7 +12,11 @@ class UsersController < ApplicationController
   end
 
   def new #get
+    if signed_in?
     @user=User.new()
+    else
+      render 'show'
+    end
   end
 
   def edit #get
@@ -20,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def show #get
-
+    @user=current_user
   end
 
   def update #patch/put

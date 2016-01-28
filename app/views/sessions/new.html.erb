@@ -1,6 +1,13 @@
+<div class="col-md-4">
+
 <%= simple_form_for(:session, url: sessions_path) do |f|%>
 
     <%= f.input :email %>
     <%= f.input :password %>
-    <%= f.submit 'Login'  %>
+    <%= f.button :submit, 'Login'  %>
 <%end%>
+  <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+      <%= link_to 'Sign up now', signup_url%>
+  <% end %>
+</div>

@@ -1,1 +1,15 @@
-Home
+<div class="container-fluid">
+
+
+
+
+    <div class="col-md-8">
+
+      <div class="tab-pane active" id="tab1">
+        Main
+        <%= render @all_hotels %>
+      </div>
+      <%= will_paginate @all_hotels %>
+    </div>
+
+</div>

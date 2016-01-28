@@ -10,4 +10,5 @@ HotelAdvisor::Application.routes.draw do
   delete '/signout', to: 'sessions#destroy'
 
   get '/', to: 'home#root'
+  root to: 'home#root'
 end

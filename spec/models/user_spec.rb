@@ -29,14 +29,14 @@ describe "User model" do
     it {should_not be_valid}
     end
 
-    describe "same as existing user" do
-      before do
-        existing_user= @user.dup
-        existing_user.name = @user.name
-        existing_user.save
-      end
-      it{should_not be_valid}
-    end
+    # describe "same as existing user" do
+    #   before do
+    #     existing_user= @user.dup
+    #     existing_user.name = @user.name
+    #     existing_user.save
+    #   end
+    #   it{should_not be_valid}
+    # end
   end
 
   describe "with email" do

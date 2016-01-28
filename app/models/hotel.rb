@@ -6,4 +6,17 @@ class Hotel < ActiveRecord::Base
   validates_uniqueness_of :title
   #validates_associated :adress
   accepts_nested_attributes_for :adress
+ # default_scope -> { order('average_raiting DESC') }
+
+def average_raiting
+  sum_value=0
+  if self.raitings.count>0
+   self.raitings.each do |t|
+    sum_value+=t.value
+   end
+   sum_value.to_f/self.raitings.count.to_f
+  else
+  sum_value.to_f
+  end
 end
+  end

@@ -8,7 +8,10 @@ gem 'shoulda-matchers'
 gem 'capybara'
 gem 'bcrypt-ruby'
 gem 'pry-rails'
-
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+gem 'faker'
 
 gem 'rails', '4.0.2'
 gem 'sqlite3'
