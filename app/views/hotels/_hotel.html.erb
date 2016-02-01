@@ -1,16 +1,21 @@
 <div class="container-fluid">
   <div class="row">
     <h3><%=hotel.title %></h3>
-    <div class="col-md-3">
+    <div class="col-md-5">
       <div class="row">Raiting:<%= hotel.average_raiting%></div>
-      <div class="row"><img src="//placehold.it/150x150" alt="Hotel pic" class="img-thumbnail"></div>
-      <div class="row">
-        <img src="//placehold.it/50x50">
-        <img src="//placehold.it/50x50">
-        <img src="//placehold.it/50x50">
+      <div id="links" class="links">
+        <a href="//placehold.it/350x350"><img src="//placehold.it/100x100" class="img-thumbnail"></a>
+        <a href="//placehold.it/350x350"><img src="//placehold.it/100x100" class="img-thumbnail"></a>
+        <a href="//placehold.it/350x350"><img src="//placehold.it/100x100" class="img-thumbnail"></a>
+        <a href="//placehold.it/350x350"><img src="//placehold.it/100x100" class="img-thumbnail"></a>
+        <a href="//placehold.it/350x350"><img src="//placehold.it/100x100" class="img-thumbnail"></a>
+      </div>
+      <div id="blueimp-gallery" class="blueimp-gallery">
+        <div class="slides"></div>
+
       </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div class="container-fluid">
         <div class="row">Room description:</div>
         <div class="row"><%= hotel.room_description %></div>
