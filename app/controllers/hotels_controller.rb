@@ -1,24 +1,16 @@
-class HotelsController < ApplicationController
-  protect_from_forgery with: :exception
-  include SessionsHelper
-
+class HotelsController < BaseController
   def index
-
   end
 
   def new
-     if !signed_in?
-       redirect_to signin_url
-    else
-      @user = current_user
-      @hotel = current_user.hotels.build()
-      @hotel.build_adress()
-     end
+    redirect_to new_user_session_path unless user_signed_in?
+
+    @hotel = current_user.hotels.build()
+    #@hotel.build_adress()
   end
 
   def create
     @hotel = current_user.hotels.build(hotel_params)
-
 
     if @hotel.save
       redirect_to current_user

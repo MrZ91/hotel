@@ -10,15 +10,15 @@ end
 def make_users
   User.create!(name:"First User",
   email:"first_user@example.com",
-  password:"123123",
-  password_confirmation:"123123")
+  password:"123123123",
+  password_confirmation:"123123123")
 
   49.times do |i|
     first_name=Faker::Name.first_name
     last_name=Faker::Name.last_name
     name="#{first_name} #{last_name}"
     email=Faker::Internet.safe_email("#{first_name}-#{i+1}_user")
-    pass=Faker::Internet.password(6)
+    pass=Faker::Internet.password(8)
     User.create!(name:name, email:email, password:pass, password_confirmation:pass)
   end
 end

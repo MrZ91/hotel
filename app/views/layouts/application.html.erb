@@ -14,7 +14,9 @@
 
 
 <div class="row ">
-  <%= render 'layouts/navigation_bar_left'%>
+  <%= render 'shared/navigation_bar_left'%>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <%= yield %>
 </div>
 </body>

@@ -4,6 +4,5 @@ class HomeController < ApplicationController
   end
 
   def hotels_list
-
   end
 end
