@@ -1,4 +1,4 @@
-<div class="col-md-2 ">
+
   <ul class="nav nav-pills nav-stacked">
     <li <%='class=active'if current_page?(root_url)%>><%=link_to("Main",root_url)%></li>
     <li
@@ -12,4 +12,3 @@
     <%= debug(params) if Rails.env.development? %>
     <%= "current user id:#{current_user.id}" if user_signed_in? %>
   </ul>
-</div>

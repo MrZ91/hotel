@@ -12,25 +12,22 @@
 </head>
 
 <body>
-
-
+<div class="container-fluid">
+<div class="row ">Navigation+  </div>
 <div class="row ">
-  <%= render 'shared/navigation_bar_left'%>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
+  <div class="col-xs-2 ">
+    <%= render 'shared/navigation_bar_left'%>
+  </div>
+
+  <div class="col-md-10 ">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </div>
+</div>
 </div>
 
-<script>
-  document.getElementById('links').onclick = function (event) {
-    event = event || window.event;
-    var target = event.target || event.srcElement,
-        link = target.src ? target.parentNode : target,
-        options = {index: link, event: event},
-        links = this.getElementsByTagName('a');
-    blueimp.Gallery(links, options);
-  };
-</script>
+
 </body>
 
 </html>

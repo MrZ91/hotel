@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: aa74e9e4301cb1ec7cd1adbdc294e037f881d4b5
+  specs:
+    carrierwave (0.10.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -47,7 +57,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     commonjs (0.2.7)
-    devise (3.5.5)
+    devise (3.5.6)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -114,6 +124,7 @@ GEM
     ref (2.0.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    rmagick (2.15.4)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -126,7 +137,7 @@ GEM
     rspec-mocks (3.4.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
-    rspec-rails (3.4.1)
+    rspec-rails (3.4.2)
       actionpack (>= 3.0, < 4.3)
       activesupport (>= 3.0, < 4.3)
       railties (>= 3.0, < 4.3)
@@ -177,7 +188,7 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    warden (1.2.5)
+    warden (1.2.6)
       rack (>= 1.0)
     will_paginate (3.1.0)
     xpath (2.0.0)
@@ -189,6 +200,7 @@ PLATFORMS
 DEPENDENCIES
   blueimp-gallery
   capybara
+  carrierwave!
   coffee-rails (~> 4.0.0)
   devise
   faker
@@ -197,6 +209,7 @@ DEPENDENCIES
   less-rails
   pry-rails
   rails (= 4.0.2)
+  rmagick
   rspec
   rspec-rails
   sass-rails (~> 4.0.0)

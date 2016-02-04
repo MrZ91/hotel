@@ -23,6 +23,7 @@ class HotelsController < BaseController
 
   def hotel_params
     params.require(:hotel).permit(:title, :room_description, :price_for_room, :breakfast,
+                                  {pictures: []},
                                   { adress_attributes: [:country, :state, :city, :street] })
   end
 end

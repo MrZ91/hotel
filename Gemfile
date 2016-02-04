@@ -20,6 +20,8 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'blueimp-gallery'
+gem 'rmagick'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
