@@ -7,6 +7,7 @@ class Hotel < ActiveRecord::Base
   accepts_nested_attributes_for :adress
  # default_scope -> { order('average_raiting DESC') }
   mount_uploaders :pictures, HotelPicsUploader
+  serialize :pictures, Array
 
 def average_raiting
   sum_value=0

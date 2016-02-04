@@ -5,11 +5,9 @@
       <div class="row">Raiting:<%= hotel.average_raiting%></div>
 
       <div id="<%=hotel.title %>" class="links">
-        <a href=<%=random_lorempixel%>><img src="//placehold.it/100x100" class="img-thumbnail"></a>
-        <a href="//placehold.it/350x350"><img src="//placehold.it/100x100" class="img-thumbnail"></a>
-        <a href="//placehold.it/350x350"><img src="//placehold.it/100x100" class="img-thumbnail"></a>
-        <a href="//placehold.it/350x350"><img src="//placehold.it/100x100" class="img-thumbnail"></a>
-        <a href="//placehold.it/350x350"><img src="//placehold.it/100x100" class="img-thumbnail"></a>
+        <%hotel.pictures.each do|picture| %>
+            <a href="<%=picture.url%>"><img src="<%=picture.thumb.url%>" class="img-thumbnail"></a>
+        <%end%>
       </div>
 
     </div>
