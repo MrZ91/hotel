@@ -4,4 +4,5 @@ module ApplicationHelper
     y=rand(800..1024)
     "http://lorempixel.com/#{x}/#{y}/city"
   end
+
 end

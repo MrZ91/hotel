@@ -21,8 +21,17 @@ ActiveRecord::Schema.define(version: 20160204093954) do
     t.integer "hotel_id"
   end
 
-# Could not dump table "hotels" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "hotels", force: true do |t|
+    t.string   "title"
+    t.text     "room_description"
+    t.decimal  "price_for_room"
+    t.boolean  "breakfast"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.text     "pictures"
+    t.decimal  "average_raiting",  default: 0.0
+  end
 
   create_table "raitings", force: true do |t|
     t.integer "user_id"

@@ -1,10 +1,10 @@
 <div class="col-md-6">
-<%= simple_form_for [current_user, @hotel] do |f|%>
+<%= simple_form_for  @hotel do |f|%>
     <%=f.input :title %>
     <%=f.input :room_description %>
     <%=f.input :price_for_room %>
     <%= f.input :breakfast %>
-    <%= f.file_field :pictures, multiple: true %>
+    <%= f.file_field :pictures, multiple: true, required: true %>
 
     <%=f.simple_fields_for :adress, @hotel.build_adress do |af| %>
         <%=af.input :country, :as => :string %>

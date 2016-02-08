@@ -3,8 +3,11 @@ namespace :db do
   task populate: :environment do
     make_users
     make_hotels
-    rate_hotels
+    #rate_hotels_rand
+    rate_hotels_all
   end
+  @user_count=14
+  @hotel_count=30
 end
 
 def make_users
@@ -13,7 +16,7 @@ def make_users
   password:"123123123",
   password_confirmation:"123123123")
 
-  49.times do |i|
+  @user_count.times do |i|
     first_name=Faker::Name.first_name
     last_name=Faker::Name.last_name
     name="#{first_name} #{last_name}"
@@ -31,7 +34,7 @@ def make_hotels
                                                  state:"First State",
                                                  city:"First City",
                                                  street:"First Street"})
-  119.times do |i|
+  @hotel_count.times do |i|
     country=Faker::Address.country
     state=Faker::Address.state
     city=Faker::Address.city
@@ -44,25 +47,34 @@ def make_hotels
     else
       breakfast=false
     end
-    usr_id=rand(49)+1
-    User.find_by(id:usr_id).hotels.create!(title:"#{i} #{name}",
+
+    usr_id=rand(@user_count)+1
+    this_hotel=User.find_by(id:usr_id).hotels.create!(title:"#{i} #{name}",
                        room_description:room_desc,
                        price_for_room:price, breakfast: breakfast,
                        :adress_attributes=>{country:country,
                                             state:state,
                                             city:city,
-                                            street:street})
+                                            street:street},)
     end
 end
 
-def rate_hotels
+def rate_hotels_rand
   users=User.all
-  hotels_id=random_from(30,120)
+  hotels_id=random_from(30,@hotel_count+1)
   users.each do |usr|
     hotels_id.each do |htl|
       usr.rate_hotel_by_value!(Hotel.find_by(id:htl),(rand(4)+1))
     end
 end
+end
+
+def rate_hotels_all
+  User.all.each do |usr|
+    Hotel.all.each do |htl|
+      usr.rate_hotel_by_value!(Hotel.find_by(id:htl),(rand(4)+1))
+    end
+  end
 end
 
 def random_from(n, from)
@@ -73,3 +85,10 @@ def random_from(n, from)
   end
   array_of_id
 end
+
+def random_lorempixel
+    x=rand(600..800)
+    y=rand(800..1024)
+    return "http://lorempixel.com/#{x}/#{y}/city"
+end
+

@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <h3><%=hotel.title %></h3>
+    <h3><%=link_to(hotel.title,hotel)%></h3>
     <div class="col-md-5">
-      <div class="row">Raiting:<%= hotel.average_raiting%></div>
+      <div class="row">Raiting:<%= hotel.average_raiting.round(2)%></div>
 
       <div id="<%=hotel.title %>" class="links">
         <%hotel.pictures.each do|picture| %>

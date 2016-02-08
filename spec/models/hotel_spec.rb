@@ -15,6 +15,8 @@ describe "Hotel model" do
   it {should respond_to(:room_description)}
   it {should respond_to(:price_for_room)}
   it {should respond_to(:adress)}
+  it {should respond_to(:pictures)}
+  it {should respond_to(:verage_raiting)}
 
   describe "with empty title" do
     before{@hotel.title=" "}

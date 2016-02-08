@@ -1,5 +1,6 @@
 class HotelsController < BaseController
-  def index
+  def show
+    @hotel=Hotel.find_by(id: params.require(:id))
   end
 
   def new
@@ -13,10 +14,16 @@ class HotelsController < BaseController
     @hotel = current_user.hotels.build(hotel_params)
 
     if @hotel.save
-      redirect_to current_user
+      redirect_to @hotel
     else
       render 'new'
     end
+  end
+
+  def rate
+    current_user.rate_hotel_by_value!(Hotel.find_by(id: params.require(:id)),
+                                     params[:raitings])
+    redirect_to show
   end
 
   private
