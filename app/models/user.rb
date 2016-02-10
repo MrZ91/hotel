@@ -13,16 +13,16 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: EMAIL_REGEX, uniqueness: true
   validates :password, length: { minimum: 5 }, presence: true, format:PASSWORD_REGEX
 
-  def rate_hotel_by_value(hotel, value)
-    self.raitings.build( hotel_id: hotel.id, value: value)
-  end
-
-  def rate_hotel_by_value!(hotel, value)
-    this_rate=rate_hotel_by_value(hotel, value)
-
-    if this_rate.valid?
-      this_rate.save
-      this_rate
-    end
-  end
+  # def rate_hotel_by_value(hotel, value)
+  #   self.raitings.build( hotel_id: hotel.id, value: value)
+  # end
+  #
+  # def rate_hotel_by_value!(hotel, value)
+  #   this_rate=rate_hotel_by_value(hotel, value)
+  #
+  #   if this_rate.valid?
+  #     this_rate.save
+  #     this_rate
+  #   end
+  # end
 end

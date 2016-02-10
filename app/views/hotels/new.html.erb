@@ -1,5 +1,5 @@
 <div class="col-md-6">
-<%= simple_form_for  @hotel do |f|%>
+<%= simple_form_for  [current_user, @hotel] do |f|%>
     <%=f.input :title %>
     <%=f.input :room_description %>
     <%=f.input :price_for_room %>

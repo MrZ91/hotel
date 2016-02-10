@@ -1,7 +1,6 @@
 class HotelsController < BaseController
-  def show
-    @hotel=Hotel.find_by(id: params.require(:id))
-  end
+  before_filter :find_hotel, only: [:show, :rate]
+  skip_before_filter :authenticate_user!, only: [:show]
 
   def new
     redirect_to new_user_session_path unless user_signed_in?
@@ -14,19 +13,26 @@ class HotelsController < BaseController
     @hotel = current_user.hotels.build(hotel_params)
 
     if @hotel.save
-      redirect_to @hotel
+      redirect_to user_hotel_path(@hotel)
     else
       render 'new'
     end
   end
 
   def rate
-    current_user.rate_hotel_by_value!(Hotel.find_by(id: params.require(:id)),
-                                     params[:raitings])
-    redirect_to show
+    rating = @hotel.raitings.build(user: current_user, value: params[:raiting][:value])
+    if rating.save
+      redirect_to hotel_path(@hotel)
+    else
+      flash[:alert]="Something goes wrong! Your rate was not saved!"
+      redirect_to hotel_path(@hotel)
+    end
   end
 
   private
+  def find_hotel
+    @hotel ||= Hotel.find_by(id: params[:id])
+  end
 
   def hotel_params
     params.require(:hotel).permit(:title, :room_description, :price_for_room, :breakfast,
