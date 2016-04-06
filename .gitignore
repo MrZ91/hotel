@@ -20,3 +20,4 @@
 /.idea
 /vendor/bundle
 /config/*.yml
+*.yml
